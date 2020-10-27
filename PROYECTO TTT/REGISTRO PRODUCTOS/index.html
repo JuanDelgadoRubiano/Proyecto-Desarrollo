@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+	<html>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="utf-8">
+    <title>Bienvenido a Mande | Fazt</title>
+    <link rel="stylesheet" href="css/master.css">
+  </head>
+  <body>
+            <div class="sign-box">
+            <h1>TTT restaurant</h1>
+            <h2>Registro Productos</h2> 
+        
+            <button className="btn"><i className="fa fa-home"></i></button>
+           
+            
+            <form class="formulario" onSubmit={this.onSubmit} encType="multipart/form-data" action="/ReciboServicios">
+              <!-- NOMBRE -->
+              <label for="Nombre del Producto">Nombre del Producto:</label>
+              <input type="text" placeholder="Ingrese Nombre del Producto" onChange={this.onChangeNombre} />
+              <!-- CODIGO PRODUCTO -->
+              <label for="Codigo Producto">Codigo Producto:</label>
+              <input type="text" placeholder="Ingrese el Codigo del Producto" onChange={this.onChangeCodigo}/>
+              <!-- PRECIO -->
+              <label for="Precio">Precio:</label>
+              <input type="text" placeholder="Ingrese el Precio"  onChange={this.onChangePrecio}/>
+              <!-- DESCUENTO -->
+              <label for="Descuento">Descuento:</label>
+              <input type="text" placeholder="Ingrese El descuento actual del producto" onChange={this.onChangeDescuento}/>
+              <!-- DISPONIBILIDAD -->
+              <label for="Disponibilidad">Disponibilidad:</label>
+              <input type="text" placeholder="Se encuentra disponible el producto?"onChange={this.onChangeDisponibilidad} />
+              
+               <!-- DESCRIPCION -->
+              <label className="descripcion" for="Descripcion de Producto">Descripcion de Producto :</label>
+             <textarea name="textarea" rows="4" cols="30" onChange = {this.onChangeDescripcion} >Escribe la descripcion de la categoria aqui </textarea>
+               <!-- FOTO -->
+               <label for="Foto Prodcuto">Foto Producto:</label>
+              <input type="file" placeholder="Ingrese foto del producto" accept=".jpg , .png" onChange={this.onChangeFoto}/>
+              <input class="Registrar" type="submit" value="Registrar" id="boton"/>
+              <a href="#">Ayuda??</a><br />
+            </form>
+          </div>
+  </body>
+</html>

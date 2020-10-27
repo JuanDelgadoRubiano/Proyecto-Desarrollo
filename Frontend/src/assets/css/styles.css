@@ -1,0 +1,588 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: url(https://media.giphy.com/media/U3qYN8S0j3bpK/giphy.gif) no-repeat center top;
+  background-size: cover;
+  font-family: sans-serif;
+  height: 100vh;
+}
+
+.login-box {
+  width: 320px;
+  height: 420px;
+  background: #000;
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  padding: 70px 30px;
+  border: 1px solid white;
+}
+
+.login-box .avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: absolute;
+  top: -50px;
+  left: calc(50% - 50px);
+}
+
+.login-box h1 {
+  margin: 0;
+  padding: 0 0 20px;
+  text-align: center;
+  font-size: 22px;
+}
+
+.login-box label {
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  display: block;
+}
+
+.login-box input {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.login-box input[type="text"], .login-box input[type="password"] {
+  border: none;
+  border-bottom: 1px solid #fff;
+  background: transparent;
+  outline: none;
+  height: 40px;
+  color: #fff;
+  font-size: 16px;
+}
+
+.login-box input[type="submit"] {
+  border: none;
+  outline: none;
+  height: 40px;
+  background: #b80f22;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 20px;
+}
+
+.login-box input[type="submit"]:hover {
+  cursor: pointer;
+  background: #ffc107;
+  color: #000;
+}
+
+.login-box a {
+  text-decoration: none;
+  font-size: 12px;
+  line-height: 20px;
+  color: darkgrey;
+}
+
+.login-box a:hover {
+  color: #fff;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: url(https://media.giphy.com/media/U3qYN8S0j3bpK/giphy.gif) no-repeat center top;
+  background-size: cover;
+  font-family: sans-serif;
+  height: 100vh;
+}
+
+
+.sign-box2 {
+  width: 320px;
+  height: 660px;
+  background: #000;
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  padding: 30px 30px;
+  border: 1px solid #fff ;
+}
+.sign-box2 h1 {
+  margin: 0;
+  padding: 0 0 20px;
+  text-align: center;
+  font-size: 32px;
+  font-family: 'Dancing Script', cursive;
+}
+.sign-box2 h2 {
+  margin: 0;
+  padding: 0 0 20px;
+  text-align: center;
+  font-size: 22px;
+}
+.sign-box2 input {
+  margin-bottom: 10px;
+}
+.sign-box2 input[type="text"]{
+  border: none;
+  border-bottom: 1px solid #fff;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  height: 40px;
+  color: #fff;
+  font-size: 16px;
+  display: block;
+  position: relative;
+}
+
+.sign-box2 input[type="submit"] {
+  border: none;
+  outline: none;
+  height: 40px;
+  background: #b80f22;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 20px;
+  margin: 10px 10px;
+}
+.sign-box2 input[type="submit"]:hover {
+  cursor: pointer;
+  background: #ffc107;
+  color: #000;
+}
+.sign-box2 a {
+  text-decoration: none;
+  font-size: 12px;
+  line-height: 20px;
+  color: darkgrey;
+}
+
+.sign-box2 a:hover {
+  color: #fff;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: url(https://media.giphy.com/media/U3qYN8S0j3bpK/giphy.gif) no-repeat center top;
+  background-size: cover;
+  font-family: sans-serif;
+  height: 100vh;
+}
+
+
+.sign-box3 {
+  width: 320px;
+  height: 720px;
+  background: #000;
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  padding: 30px 30px;
+  border: 1px solid #fff ;
+}
+.sign-box3 h1 {
+  margin: 0;
+  padding: 0 0 20px;
+  text-align: center;
+  font-size: 32px;
+  font-family: 'Dancing Script', cursive;
+}
+.sign-box3 h2 {
+  margin: 0;
+  padding: 0 0 20px;
+  text-align: center;
+  font-size: 22px;
+}
+.sign-box3 input {
+  margin-bottom: 10px;
+}
+.sign-box3 input[type="text"]{
+  border: none;
+  border-bottom: 1px solid #fff;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  height: 40px;
+  color: #fff;
+  font-size: 16px;
+  display: block;
+  position: relative;
+}
+
+.sign-box3 input[type="submit"] {
+  border: none;
+  outline: none;
+  height: 40px;
+  background: #b80f22;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 20px;
+  margin: 10px 10px;
+}
+.sign-box3 input[type="submit"]:hover {
+  cursor: pointer;
+  background: #ffc107;
+  color: #000;
+}
+.sign-box3 a {
+  text-decoration: none;
+  font-size: 12px;
+  line-height: 20px;
+  color: darkgrey;
+}
+
+.sign-box3 a:hover {
+  color: #fff;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  background-size: cover;
+  font-family: sans-serif;
+  height: 100vh;
+}
+
+.login-box2 {
+  width: 420px;
+  height: 630px;
+  background: #000;
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  padding: 30px 30px;
+  border: 1px solid white;
+  border-radius: 15px;
+}
+
+.login-box2 h1 {
+  margin: 0;
+  padding: 0 0 20px;
+  text-align: center;
+  font-size: 32px;
+  font-family: 'Dancing Script', cursive;
+}
+
+.login-box2 h2 {
+  margin: 0;
+  padding: 0 0 20px;
+  text-align: center;
+  font-size: 22px;
+}
+
+
+.login-box2 label {
+  margin: 10px 0px;
+  padding: 0;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.login-box2 input {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+
+.login-box2 input[type="text"], .login-box input[type="password"] {
+  border: none;
+  border-bottom: 1px solid #fff;
+  background: transparent;
+  outline: none;
+  height: 40px;
+  color: #fff;
+  font-size: 16px;
+}
+
+.login-box2 input[type="submit"] {
+  border: none;
+  outline: none;
+  width: 150px;
+  height: 40px;
+  background: #b80f22;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 20px;
+  position: relative;
+  display: inline-block;
+  margin:10px;
+}
+
+.login-box2 input[type="submit"]:hover {
+  cursor: pointer;
+  background: #ffc107;
+  color: #000;
+}
+
+.login-box2 a {
+  text-decoration: none;
+  font-size: 12px;
+  line-height: 20px;
+  color: darkgrey;
+}
+
+.login-box2 a:hover {
+  display: block;
+  color: #fff;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: url(https://media.giphy.com/media/U3qYN8S0j3bpK/giphy.gif) no-repeat center top;
+  background-size: cover;
+  font-family: sans-serif;
+  height: 100vh;
+}
+
+
+.sign-box4 {
+  width: 320px;
+  height: 720px;
+  background: #000;
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  padding: 30px 30px;
+  border: 1px solid #fff ;
+}
+.sign-box4 h1 {
+  margin: 0;
+  padding: 0 0 20px;
+  text-align: center;
+  font-size: 32px;
+  font-family: 'Dancing Script', cursive;
+}
+.sign-box4 h2 {
+  margin: 0;
+  padding: 0 0 20px;
+  text-align: center;
+  font-size: 22px;
+}
+.sign-box4 input {
+  margin-bottom: 10px;
+}
+.sign-box4 input[type="text"]{
+  border: none;
+  border-bottom: 1px solid #fff;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  height: 40px;
+  color: #fff;
+  font-size: 16px;
+  display: block;
+  position: relative;
+}
+
+.sign-box4 input[type="submit"] {
+  border: none;
+  outline: none;
+  height: 40px;
+  background: #b80f22;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 20px;
+  margin: 10px 10px;
+}
+.sign-box4 input[type="submit"]:hover {
+  cursor: pointer;
+  background: #ffc107;
+  color: #000;
+}
+.sign-box4 a {
+  text-decoration: none;
+  font-size: 12px;
+  line-height: 20px;
+  color: darkgrey;
+}
+
+.sign-box4 a:hover {
+  color: #fff;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: url(https://media.giphy.com/media/U3qYN8S0j3bpK/giphy.gif) no-repeat center top;
+  background-size: cover;
+  font-family: sans-serif;
+  height: 100vh;
+}
+
+
+.sign-box5 {
+  width: 320px;
+  height: 800px;
+  background: #000;
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  padding: 30px 30px;
+  border: 1px solid #fff ;
+}
+.sign-box5 h1 {
+  margin: 0;
+  padding: 0 0 20px;
+  text-align: center;
+  font-size: 32px;
+  font-family: 'Dancing Script', cursive;
+}
+.sign-box5 h2 {
+  margin: 0;
+  padding: 0 0 20px;
+  text-align: center;
+  font-size: 22px;
+}
+.sign-box5 input {
+  margin-bottom: 10px;
+}
+.sign-box5 input[type="text"]{
+  border: none;
+  border-bottom: 1px solid #fff;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  height: 40px;
+  color: #fff;
+  font-size: 16px;
+  display: block;
+  position: relative;
+}
+
+.sign-box5 input[type="submit"] {
+  border: none;
+  outline: none;
+  height: 40px;
+  background: #b80f22;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 20px;
+  margin: 10px 10px;
+}
+.sign-box5 input[type="submit"]:hover {
+  cursor: pointer;
+  background: #ffc107;
+  color: #000;
+}
+.sign-box5 a {
+  text-decoration: none;
+  font-size: 12px;
+  line-height: 20px;
+  color: darkgrey;
+}
+
+.sign-box5 a:hover {
+  color: #fff;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  background-size: cover;
+  font-family: sans-serif;
+  height: 100vh;
+}
+
+.login-box3 {
+  width: 420px;
+  height: 700px;
+  background: #000;
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  padding: 30px 30px;
+  border: 1px solid white;
+  border-radius: 15px;
+}
+
+.login-box3 h1 {
+  margin: 0;
+  padding: 0 0 20px;
+  text-align: center;
+  font-size: 32px;
+  font-family: 'Dancing Script', cursive;
+}
+
+.login-box3 h2 {
+  margin: 0;
+  padding: 0 0 20px;
+  text-align: center;
+  font-size: 22px;
+}
+
+
+.login-box3 label {
+  margin: 10px 0px;
+  padding: 0;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.login-box3 input {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.login-box3 input[type="text"], .login-box input[type="password"] {
+  border: none;
+  border-bottom: 1px solid #fff;
+  background: transparent;
+  outline: none;
+  height: 40px;
+  color: #fff;
+  font-size: 16px;
+}
+
+.login-box3 input[type="submit"] {
+  border: none;
+  outline: none;
+  width: 150px;
+  height: 40px;
+  background: #b80f22;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 20px;
+  position: relative;
+  display: inline-block;
+  margin:10px;
+}
+
+.login-box3 input[type="submit"]:hover {
+  cursor: pointer;
+  background: #ffc107;
+  color: #000;
+}
+
+.login-box3 a {
+  text-decoration: none;
+  font-size: 12px;
+  line-height: 20px;
+  color: darkgrey;
+}
+
+.login-box3 a:hover {
+  display: block;
+  color: #fff;
+}

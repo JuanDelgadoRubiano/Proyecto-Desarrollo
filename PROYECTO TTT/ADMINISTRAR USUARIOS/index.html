@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="utf-8">
+    <title>MANDE APP | Fazt</title>
+    <link rel="stylesheet" href="css/master.css">
+  </head>
+  <body>
+    <div class="sign-box">
+      <h1>TTT restaurant</h1>
+      <h2>Aministrar Usuarios</h2> 
+     
+      <form class = "consulta" onSubmit = {this.onSubmitConsulta}>
+        <!-- CONSULTAR USUARIO POR ID -->
+       <label for="ID">Consultar Usuario por ID:</label>
+       <input type="text" placeholder="Ingrese el id" onChange={this.onChangeID} /> 
+       <input class="Buscar" type="submit" value="Buscar"  />
+      </form> 
+      <form class="formulario" onSubmit={this.onSubmit} encType="multipart/form-data" action="/ReciboServicios">
+        
+       <!-- NOMBRE -->
+       <label for="Nombre">Nombre:</label>
+       <input type="text" placeholder="Aqui se genera el nombre" onChange={this.onChangeUsuario} />
+       <!-- Nombre Corto -->
+       <label for="Nombre Corto">Nombre Corto:</label>
+       <input type="text" placeholder="Aqui se genera el nombre corto" onChange={this.onChangeNombreCorto}/>          
+       <!-- EMAIL -->
+       <label for="Email">Email:</label>
+       <input type="text" placeholder="Aqui se genera el email" onChange={this.onChangeEmail}/>
+       <!-- ROL -->
+       <label for="Rol">Rol:</label>
+       <input type="text" placeholder="Aqui se genera el Rol del usuario"onChange={this.onChangeRol} />     
+       <input class="Guardar" type="submit" value="Guardar"  />      
+        <a href="#">Ayuda??</a><br />
+      </form>
+    <form class = "eliminar" onSubmit = {this.onSubmitBorrar}>
+    <input class="Eliminar Usuario" type="submit" value="Eliminar Usuario"  />
+    </form>
+    </div>
+  </body>
+</html>

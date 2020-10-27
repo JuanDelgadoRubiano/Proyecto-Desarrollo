@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="utf-8">
+    <title>MANDE APP | Fazt</title>
+    <link rel="stylesheet" href="css/master.css">
+  </head>
+  <body>   
+    <div class="login-box">
+      <h1>TTT Restaurant</h1>
+      <h2>Administrar Categorias</h2>
+      <form class = "consulta" onSubmit = {this.onSubmitConsulta}>
+        <!-- CONSULTAR CATEGORIA POR ID -->
+        <label for="ID">Ingrese el ID de la categoria:</label>
+        <input type="text" placeholder="Ingrese el id" onChange={this.onChangeID} /> 
+        <input class="Buscar" type="submit" value="Buscar"  />
+        </form> 
+      <form>
+        <!-- CATEGORIAS -->
+        <label for="Categorias">Categoria</label>
+        <input type="text" placeholder="Aqui va el nombre de la categoria" />
+        <!-- DESCRIPCION -->
+        <label className="descripcion" for="Descripcion de Categoria">Descripcion de Categoria :</label>
+        <textarea name="textarea" rows="4" cols="40" onChange = {this.onChangeDescripcion}>Escribe la descripcion de la categoria aqui </textarea>
+        <input type="submit" value="Adicionar Categoria" />                     
+      </form>
+      <form class = "eliminar" onSubmit = {this.onSubmitBorrar}>
+        <input class="Categoria" type="submit" value="Eliminar Categoria"  />
+        </form>
+      <form>
+        <input type="submit" value="Finalizar" /> <br />
+        <a href="#">Ayuda?</a>
+      </form>
+    </div>
+  </body>
+</html>

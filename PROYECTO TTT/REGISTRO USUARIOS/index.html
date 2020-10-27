@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+	<html>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="utf-8">
+    <title>Bienvenido a Mande | Fazt</title>
+    <link rel="stylesheet" href="css/master.css">
+  </head>
+  <body>
+      <div class="sign-box">
+      <h1>TTT restaurant</h1>
+      <h2>Registro Usuario</h2> 
+      
+      <button className="btn"><i className="fa fa-home"></i></button>
+
+      
+      <form class="formulario" onSubmit={this.onSubmit} encType="multipart/form-data" action="/ReciboServicios">
+        <!-- NOMBRE -->
+        <label for="Nombre">Nombre:</label>
+        <input type="text" placeholder="Ingrese Nombre de Usuario" onChange={this.onChangeUsuario} />
+         <!-- Nombre Corto -->
+        <label for="Nombre Corto">Nombre Corto:</label>
+        <input type="text" placeholder="Ingrese El nombre corto" onChange={this.onChangeNombreCorto}/>
+       <!-- CONTRASEÑA -->
+        <label for="Contraseña">Contraseña:</label>
+        <input type="text" placeholder="Ingrese Contraseña"  onChange={this.onChangeContraseña}/>
+        <!-- EMAIL -->
+        <label for="Email">Email:</label>
+        <input type="text" placeholder="Ingrese Email" onChange={this.onChangeEmail}/>
+         <!-- ROL -->
+        <label for="Rol">Rol:</label>
+        <input type="text" placeholder="Ingrese el Rol del usuario"onChange={this.onChangeRol} />
+        <input class="Registrar" type="submit" value="Registrar" id="boton"/>
+        <a href="#">Ayuda??</a><br />
+      </form>
+    </div>
+  </body>
+</html>
