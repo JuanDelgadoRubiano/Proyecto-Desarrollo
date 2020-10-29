@@ -1,5 +1,4 @@
 import React,{Component, Fragment} from 'react';
-import TipoRegistro from './TipoRegistro';
 import axios from 'axios'
 import { Link } from 'react-router-dom';
 
@@ -9,30 +8,39 @@ import { Link } from 'react-router-dom';
 class RegistroProductos extends Component{
 
     state = {
-     nombreUsuario: '',
-     nombreCorto: '',
-     password: '',
-     email: '',
-     rol: '',
+     nombre: '',
+     Codigo: '',
+     precio: '',
+     Descuento: '',
+     Categoria: '',
+     Dispoinibilidad: '',
+     Descripcion: '',
+
      selectedFile: null
     }
 
-    onChangeUsuario = (e) => {
-     this.setState({nombreUsuario: e.target.value})
+    onChangeNombre = (e) => {
+     this.setState({nombre: e.target.value})
     }
-    onChangeNombreCorto = (e) => {
-      this.setState({nombreCorto: e.target.value})
+    onChangeCodigo = (e) => {
+      this.setState({Codigo: e.target.value})
     }
-    onChangeContraseña = (e) => {
-      this.setState({password: e.target.value})
-    }
-
-    onChangeEmail = (e) => {
-      this.setState({email: e.target.value})
+    onChangePrecio = (e) => {
+      this.setState({precio: e.target.value})
     }
 
-    onChangeRol = (e) => {
-      this.setState({rol: e.target.value})
+    onChangeDescuento = (e) => {
+      this.setState({Descuento: e.target.value})
+    }
+
+    onChangeCategoria = (e) => {
+      this.setState({Categoria: e.target.value})
+    }
+    onChangeDisponibilidad = (e) => {
+      this.setState({Dispoinibilidad: e.target.value})
+    }
+    onChangeDescripcion = (e) => {
+      this.setState({Descripcion: e.target.value})
     }
 
     onChangeFoto = (e) => {
@@ -43,23 +51,28 @@ class RegistroProductos extends Component{
     }
 
     onSubmit = async e => {
-
       e.preventDefault();
-       const respuesta = await axios.post('http://localhost:4000/cuenta/crearu', {"telefono": this.state.telefono,
-        "pass": this.state.password,
-        "email": this.state.email,
-       "tipo": "u",
-        "name": this.state.nombreUsuario,
-        "mpago" : "credito",
-        "recibo" : "/lalalae",
-       "direccion": "ST_GeomFromText('POINT(-0.1257 51.508)',4326)"})
+      var dispo = true;
+      if (this.state.Dispoinibilidad === "Nodisponible"){
+         dispo = false;
+      }
+      else {
+        if (this.state.Dispoinibilidad === "Disponible"){
+          dispo = true;
+        }
+      }    
+       const respuesta = await axios.post('http://localhost:4000/productos', {"categoria": this.state.Categoria,
+        "nombre": this.state.nombre,
+        "imagen": "Olis",
+       "descripcion": this.state.Descripcion,
+        "descuentos": this.state.Descuento,
+        "detalles" : "nanananan Batmaaaann",
+        "precio" : this.state.precio,
+       "disponibilidad": dispo,
+       "iva": 16})
         console.log(respuesta);
         const data = new FormData();
         data.append('file', this.state.selectedFile);
-        const img = await axios.post("http://localhost:4000/upload", data, {
-      // receive two    parameter endpoint url ,form data
-        });
-        console.log(img);
         
         if(this.state.nombreUsuario === '' | 
            this.state.password === '' |
@@ -69,7 +82,7 @@ class RegistroProductos extends Component{
            this.state.noTarjeta === '' ){console.log("1")
            }
            else{
-            document.location.href = "http://localhost:3000/Usuario";
+            document.location.href = "http://localhost:3000/Registro_Productos";
            }
     }
 
@@ -83,11 +96,8 @@ class RegistroProductos extends Component{
             <div class="sign-box3">
             <h1>TTT restaurant</h1>
             <h2>Registro Productos</h2> 
-            <Link className="nav-link" to={"/"} >
-            <button className="btn"><i className="fa fa-home"></i></button>
-            </Link>
             
-            <form class="formulario" onSubmit={this.onSubmit} encType="multipart/form-data" action="/ReciboServicios">
+            <form class="formulario" onSubmit={this.onSubmit} >
               {/*<!-- NOMBRE -->*/}
               <label for="Nombre del Producto">Nombre del Producto:</label>
               <input type="text" placeholder="Ingrese Nombre del Producto" onChange={this.onChangeNombre} />
@@ -100,13 +110,16 @@ class RegistroProductos extends Component{
                {/*<!-- DESCUENTO -->*/}
               <label for="Descuento">Descuento:</label>
               <input type="text" placeholder="Ingrese El descuento actual del producto" onChange={this.onChangeDescuento}/>
+              {/*<!-- CATEGORIA -->*/}
+              <label for="Categoria">Categoria:</label>
+              <input type="text" placeholder="Ingrese La categoria del producto" onChange={this.onChangeCategoria}/>
                {/*<!-- DISPONIBILIDAD -->*/}
               <label for="Disponibilidad">Disponibilidad:</label>
               <input type="text" placeholder="Se encuentra disponible el producto?"onChange={this.onChangeDisponibilidad} />
               <input class="Registrar" type="submit" value="Registrar" id="boton"/>
                {/*<!-- DESCRIPCION -->*/}
               <label className="descripcion" for="Descripcion de Producto">Descripcion de Producto :</label>
-             <textarea name="textarea" rows="4" cols="50" onChange = {this.onChangeDescripcion} >Escribe la descripcion de la categoria aqui </textarea>
+             <textarea name="textarea" rows="4" cols="30" onChange = {this.onChangeDescripcion} >Escribe la descripcion de la categoria aqui </textarea>
                {/*<!-- FOTO -->*/}
                <label for="Foto Prodcuto">Foto Producto:</label>
               <input type="file" placeholder="Ingrese foto del producto" accept=".jpg , .png" onChange={this.onChangeFoto}/>

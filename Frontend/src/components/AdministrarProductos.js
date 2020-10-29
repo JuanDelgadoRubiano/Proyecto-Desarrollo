@@ -1,5 +1,4 @@
 import React,{Component, Fragment} from 'react';
-import TipoRegistro from './TipoRegistro';
 import axios from 'axios'
 import { Link } from 'react-router-dom';
 
@@ -9,31 +8,35 @@ import { Link } from 'react-router-dom';
 class AdministrarProductos extends Component{
 
     state = {
-     nombreUsuario: '',
-     nombreCorto: '',
-     password: '',
-     email: '',
-     rol: '',
+     ID: '',
+     nombre: '',
+     precio: '',
+     descuento: '',
+     disponibilidad: '',
+     descripcion: '',
      selectedFile: null,
      productoActual: []
     }
-
-    onChangeUsuario = (e) => {
-     this.setState({nombreUsuario: e.target.value})
-    }
-    onChangeNombreCorto = (e) => {
-      this.setState({nombreCorto: e.target.value})
-    }
-    onChangeContraseña = (e) => {
-      this.setState({password: e.target.value})
+    onChangeID = (e) => {
+      this.setState({ID: e.target.value});
     }
 
-    onChangeEmail = (e) => {
-      this.setState({email: e.target.value})
+    onChangeNombre = (e) => {
+     this.setState({nombre: e.target.value})
+    }
+    onChangePrecio = (e) => {
+      this.setState({precio: e.target.value})
+    }
+    onChangeDescuento = (e) => {
+      this.setState({descuento: e.target.value})
     }
 
-    onChangeRol = (e) => {
-      this.setState({rol: e.target.value})
+    onChangeDisponibilidad = (e) => {
+      this.setState({disponibilidad: e.target.value})
+    }
+
+    onChangeDescripcion = (e) => {
+      this.setState({descripcion: e.target.value})
     }
 
     onChangeFoto = (e) => {
@@ -43,35 +46,55 @@ class AdministrarProductos extends Component{
       })
     }
 
+    onSubmitConsulta = async e => {
+      e.preventDefault();
+      const res = await axios.get('http://localhost:4000/productos/cod/' + this.state.ID );
+      await this.setState({productoActual: res.data[0]});
+      console.log(res);
+      this.setState({nombre: this.state.productoActual.nombre });
+      this.setState({precio: this.state.productoActual.precio});
+      this.setState({descuento: this.state.productoActual.descuentos });
+      this.setState({disponibilidad: this.state.productoActual.disponibilidad });
+      this.setState({descripcion: this.state.productoActual.descripcion });
+
+      console.log("AQUI ESTOYYYYYYY");
+      console.log(this.state.nombre);
+      console.log(this.state.precio);
+      console.log(this.state.descuento);
+      console.log(this.state.disponibilidad);
+      console.log(this.state.descripcion);
+     
+
+    }
+
     onSubmit = async e => {
 
       e.preventDefault();
-       const respuesta = await axios.post('http://localhost:4000/cuenta/crearu', {"telefono": this.state.telefono,
-        "pass": this.state.password,
-        "email": this.state.email,
-       "tipo": "u",
-        "name": this.state.nombreUsuario,
-        "mpago" : "credito",
-        "recibo" : "/lalalae",
-       "direccion": "ST_GeomFromText('POINT(-0.1257 51.508)',4326)"})
-        console.log(respuesta);
-        const data = new FormData();
-        data.append('file', this.state.selectedFile);
-        const img = await axios.post("http://localhost:4000/upload", data, {
-      // receive two    parameter endpoint url ,form data
-        });
-        console.log(img);
+       const respuesta = await axios.post('http://localhost:4000/productos/update', {"categoria": this.state.productoActual.categoria,
+        "nombre": this.state.nombre,
+        "imagen": "YOTAS",
+       "descripcion": this.state.descripcion,
+        "descuentos": this.state.descuento,
+        "detalles" : "Yoloooooo",
+        "precio" : this.state.precio,
+       "disponibilidad": this.state.disponibilidad,
+       "iva" : 16,
+       "codigo": this.state.ID})
         
-        if(this.state.nombreUsuario === '' | 
-           this.state.password === '' |
-           this.state.telefono === '' |
-           this.state.direccion === '' |
-           this.state.email === '' |
-           this.state.noTarjeta === '' ){console.log("1")
+        if(this.state.nombre === '' | 
+           this.state.descripcion === '' |
+           this.state.descuento === '' |
+           this.state.precio === '' |
+           this.state.disponibilidad === ''){console.log("1")
            }
            else{
-            document.location.href = "http://localhost:3000/Usuario";
+            document.location.href = "http://localhost:3000/Administrar_Productos";
            }
+    }
+
+    onSubmitBorrar = async e => {
+      e.preventDefault();
+      const respuesta = await axios.delete('http://localhost:4000/productos/' + this.state.ID )
     }
 
     render(){
@@ -84,9 +107,6 @@ class AdministrarProductos extends Component{
             <div class="sign-box5">
             <h1>TTT restaurant</h1>
             <h2>Administrar Productos</h2> 
-            <Link className="nav-link" to={"/"} >
-            <button className="btn"><i className="fa fa-home"></i></button>
-            </Link>
             <form class = "consulta" onSubmit = {this.onSubmitConsulta}>
                {/*<!-- CONSULTAR PRODCUTO POR ID -->*/}
               <label for="ID">ID:</label>
@@ -97,20 +117,19 @@ class AdministrarProductos extends Component{
               {/*<!-- FOTO -->*/}
               {/*<!-- NOMBRE -->*/}
               <label for="Nombre del Producto">Nombre del Producto:</label>
-              <input type="text" placeholder="Ingrese Nombre del Producto" onChange={this.onChangeNombre} value = {this.state.productoActual.nombre}/>
+              <input type="text" placeholder="Ingrese Nombre del Producto" onChange={this.onChangeNombre} defaultValue = {this.state.productoActual.nombre}/>
               {/*<!-- PRECIO -->*/}
               <label for="Precio">Precio:</label>
-              <input type="text" placeholder="Ingrese el Precio"  onChange={this.onChangePrecio} value = {this.state.productoActual.precio}/>
+              <input type="text" placeholder="Ingrese el Precio"  onChange={this.onChangePrecio} defaultValue = {this.state.productoActual.precio}/>
                {/*<!-- DESCUENTO -->*/}
               <label for="Descuento">Descuento:</label>
-              <input type="text" placeholder="Ingrese El descuento actual del producto" onChange={this.onChangeDescuento} value = {this.state.productoActual.descuento}/>
+              <input type="text" placeholder="Ingrese El descuento actual del producto" onChange={this.onChangeDescuento} defaultValue = {this.state.productoActual.descuentos}/>
                {/*<!-- DISPONIBILIDAD -->*/}
               <label for="Disponibilidad">Disponibilidad:</label>
-              <input type="text" placeholder="Se encuentra disponible el producto?"onChange={this.onChangeDisponibilidad} value = {this.state.productoActual.disponibilidad}/>
-              <input class="Registrar" type="submit" value="Registrar" id="boton"/>
+              <input type="text" placeholder="Se encuentra disponible el producto?"onChange={this.onChangeDisponibilidad} defaultValue = {this.state.productoActual.disponibilidad}/>
                {/*<!-- DESCRIPCION -->*/}
               <label className="descripcion" for="Descripcion de Producto">Descripcion de Producto :</label>
-             <textarea name="textarea" rows="4" cols="50" onChange = {this.onChangeDescripcion} value = {this.state.productoActual.descripcion}>Escribe la descripcion de la categoria aqui </textarea>
+             <textarea name="textarea" rows="4" cols="30" onChange = {this.onChangeDescripcion} defaultValue = {this.state.productoActual.descripcion}>Mucho texto </textarea>
              <input class="Guardar" type="submit" value="Guardar"  />
             </form>
             <form class = "eliminar" onSubmit = {this.onSubmitBorrar}>

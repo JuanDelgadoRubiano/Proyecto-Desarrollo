@@ -134,7 +134,7 @@ const createUsuario= async (req,res) => {
 
 const UpdateUsuario= async (req,res) => {
 	const { nombre, nombrec, correo, contraseña, rol, id } = req.body;
-	const response = await pool.query('update usuario set nombre = $1, nombrec = $2, correo = $3, contraseña = $4, rol = $5 where id = $6',[nombre, nombrec, correo, contraseña, rol, id]);
+	const response = await pool.query('update usuario set nombre = $1, nombrec = $2, contraseña = $3, rol = $4 where correo = $5',[nombre, nombrec, contraseña, rol, correo]);
 	res.json({
       message: 'usuario modificado',
       body: {

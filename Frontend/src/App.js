@@ -7,7 +7,7 @@ import glo from './components/glo.js';
 //Importar componentes
 
 
-import Header from './components/Header';
+import Header from './components/HEADER';
 import Rutas from './Rutas';
 import LoginUsuario from './components/LoginUsuario';
 

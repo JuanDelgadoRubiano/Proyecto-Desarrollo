@@ -1,5 +1,4 @@
 import React,{Component, Fragment} from 'react';
-import TipoRegistro from './TipoRegistro';
 import axios from 'axios'
 import { Link } from 'react-router-dom';
 
@@ -36,34 +35,26 @@ class RegistroUsuario extends Component{
 
 
     onSubmit = async e => {
-
       e.preventDefault();
-       const respuesta = await axios.post('http://localhost:4000/cuenta/crearu', {"telefono": this.state.telefono,
-        "pass": this.state.password,
-        "email": this.state.email,
-       "tipo": "u",
-        "name": this.state.nombreUsuario,
-        "mpago" : "credito",
-        "recibo" : "/lalalae",
-       "direccion": "ST_GeomFromText('POINT(-0.1257 51.508)',4326)"})
-        console.log(respuesta);
-        const data = new FormData();
-        data.append('file', this.state.selectedFile);
-        const img = await axios.post("http://localhost:4000/upload", data, {
-      // receive two    parameter endpoint url ,form data
-        });
-        console.log(img);
-        
-        if(this.state.nombreUsuario === '' | 
-           this.state.password === '' |
-           this.state.telefono === '' |
-           this.state.direccion === '' |
-           this.state.email === '' |
-           this.state.noTarjeta === '' ){console.log("1")
-           }
-           else{
-            document.location.href = "http://localhost:3000/Usuario";
-           }
+      const respuesta = await axios.post('http://localhost:4000/usuarios', {"nombre": this.state.nombreUsuario,
+      "nombrec": this.state.nombreCorto,
+      "correo": this.state.email,
+      "contraseña": this.state.password,
+      "rol" : this.state.rol})
+      console.log(respuesta);
+      const data = new FormData();
+      data.append('file', this.state.selectedFile);
+      
+      
+      if(this.state.nombreUsuario === '' | 
+         this.state.nombreCorto === '' |
+         this.state.password === '' |
+         this.state.rol === '' |
+         this.state.email === ''){console.log("1")
+         }
+         else{
+          document.location.href = "http://localhost:3000/Registro_Usuario";
+         }
     }
 
     render(){
@@ -80,7 +71,7 @@ class RegistroUsuario extends Component{
             <button className="btn"><i className="fa fa-home"></i></button>
             </Link>
             
-            <form class="formulario" onSubmit={this.onSubmit} encType="multipart/form-data" action="/ReciboServicios">
+            <form class="formulario" onSubmit={this.onSubmit} >
               {/*<!-- NOMBRE -->*/}
               <label for="Nombre">Nombre:</label>
               <input type="text" placeholder="Ingrese Nombre de Usuario" onChange={this.onChangeUsuario} />

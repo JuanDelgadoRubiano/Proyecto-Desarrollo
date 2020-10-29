@@ -7,8 +7,7 @@ class AdicionarCategorias extends Component {
 
     state = {
     Categoria: '',
-    descripcion: '',
-    PrecioLabor: ''
+    descripcion: ''
 
     }
 
@@ -18,10 +17,6 @@ class AdicionarCategorias extends Component {
     }
    
 
-    onChangePrecio= (e) => {
-     this.setState({PrecioLabor: e.target.value});
-    }
-
     onChangeDescripcion= (e) => {
         this.setState({descripcion: e.target.value});
        }
@@ -29,11 +24,17 @@ class AdicionarCategorias extends Component {
     onSubmit = async e => {
 
         e.preventDefault();
-        const respuesta = await axios.post('http://localhost:4000/trabajador/labor/crear', 
-        {"telefono": 3106330913,
-	    "labor": this.state.Labor,
-	    "unidad": this.state.PrecioLabor,
-        "descripcion": "Lo hare bn deveras"})
+        const respuesta = await axios.post('http://localhost:4000/categorias', 
+        {"nombre": this.state.Categoria,
+        "descripcion": this.state.descripcion})
+
+        if(this.state.Categoria === '' | 
+        this.state.descripcion === '' 
+        ){console.log("1")
+        }
+        else{
+         document.location.href = "http://localhost:3000/Registro_Productos";
+        }
         
     }
 
@@ -48,17 +49,13 @@ class AdicionarCategorias extends Component {
              {/*<!-- CATEGORIA -->*/}
             <label for="Categoria">Categoria:</label>
             <input type="text" placeholder="Ingrese nombre de Categoria" onChange={this.onChangeCategoria} />
-             {/*<!-- ID-->*/}
-            <label for="ID">ID:</label>
-            <input type="text" placeholder="Ingrese ID de la Categoria" onChange={this.onChangeID} />
-
              {/*<!-- DESCRIPCION -->*/}
             <label className="descripcion" for="Descripcion de Categoria">Descripcion de Categoria :</label>
             <textarea name="textarea" rows="4" cols="50" onChange = {this.onChangeDescripcion}>Escribe la descripcion de la categoria aqui </textarea>
             <input type="submit" value="Adicionar Categoria" />                     
             </form>
             <form>
-            <Link className="nav-link" to={"/Trabajador"} >
+            <Link className="nav-link" to={"/"} >
             <input type="submit" value="Finalizar" /> <br />
             </Link>
             <a href="#">Ayuda?</a>

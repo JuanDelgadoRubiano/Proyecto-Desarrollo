@@ -47,7 +47,7 @@ router.delete('/productos/:id', DeleteProductoByCod);
 router.get('/usuarios', getUsuarios);
 router.get('/usuarios/:id', getUsuarioBycor);
 router.post('/usuarios/update', UpdateUsuario);
-router.post('/usuarios', UpdateUsuario);
+router.post('/usuarios', createUsuario);
 router.delete('/usuarios/Cor/:id', DeleteUsuarioByCor);
 router.delete('/usuarios/:id', DeleteUsuarioByID);
 router.get('/clientes/:id',getClienteByDoc);

@@ -4,65 +4,85 @@ import { Link } from 'react-router-dom';
 
 class AdministrarUsuario extends Component{
 
-    
-    state = {
-        nombreTrabajador: '',
-        password: '',
-        telefono: '',
-        direccion: '',
-        email: '',
-        noTarjeta: ''
-    }
 
-      onChangeNombre = (e) => {
-        this.setState({nombreTrabajador: e.target.value})
+     state = {
+        ID: '',
+        contraseña: '',
+        usuario: '',
+        corto:'',
+        Rol: '',  
+        email: '',
+        
+        usuarioActual: []
+
+    }
+      onChangeID = (e) => {
+        this.setState({ID: e.target.value});
+      }
+    
+ 
+      onChangeUsuario = (e) => {
+        this.setState({usuario: e.target.value});
        }
+       onChangeNombreCorto = (e) => {
+         this.setState({corto: e.target.value})
+       }
+
        onChangeContraseña = (e) => {
-         this.setState({password: e.target.value})
+         this.setState({contraseña: e.target.value});
        }
    
-       onChangeDireccion = (e) => {
-         this.setState({direccion: e.target.value})
-       }
-   
-       onChangeTelefono = (e) => {
-         this.setState({telefono: e.target.value})
+       onChangeRol = (e) => {
+         this.setState({Rol: e.target.value})
        }
    
        onChangeEmail = (e) => {
          this.setState({email: e.target.value})
        }
    
-       onChangeTarjeta = (e) => {
-         this.setState({noTarjeta: e.target.value})
+      
+       onSubmitConsulta = async e => {
+         e.preventDefault();
+         const res = await axios.get('http://localhost:4000/usuarios/' + this.state.ID );
+         await this.setState({usuarioActual: res.data[0]});
+         console.log(res);
+         this.setState({usuario: this.state.usuarioActual.nombre });
+         this.setState({corto: this.state.usuarioActual.nombrec});
+         this.setState({Rol: this.state.usuarioActual.rol });
+
+         console.log("AQUI ESTOYYYYYYY");
+         console.log(this.state.usuario);
        }
 
 
        onSubmit = async e => {
         e.preventDefault();
-        const respuesta = await axios.post('http://localhost:4000/cuenta/creart', {"telefono": this.state.telefono,
-        "pass": this.state.password,
-        "email": this.state.email,
-        "tipo": "t",
-        "cc": 11111111,
-        "name": this.state.nombreTrabajador,
-        "estrellas" : 4.5,
-        "disponible" : true,
-        "perfil": "/casita",
-        "documento": "/casita2",
-        "direccion": "ST_GeomFromText('POINT(-0.1257 51.508)',4326)"})
+        const respuesta = await axios.post('http://localhost:4000/usuarios/update', {"nombre": this.state.usuario,
+        "nombrec": this.state.corto,
+        "contraseña": this.state.contraseña,
+        "correo": this.state.ID,
+        "rol" : this.state.Rol})
+         
          console.log(respuesta);
+         console.log(this.state.usuario);
+         console.log(this.state.corto);
+         console.log(this.state.contraseña);
+         console.log(this.state.Rol);
+        
+         if(this.state.usuario === '' | 
+         this.state.corto === '' |
+         this.state.contraseña === '' |
+         this.state.Rol === ''  ){console.log("1")
+         }
+         else{
+          document.location.href = "http://localhost:3000/Administrar_Usuario";
+         }
+      
+     }
 
-         if(this.state.nombreTrabajador === '' | 
-         this.state.password === '' |
-         this.state.telefono === '' |
-         this.state.direccion === '' |
-         this.state.email === '' |
-         this.state.noTarjeta === ''){console.log("1")
-           }
-           else{
-            document.location.href = "http://localhost:3000/Trabajador";
-           }
+     onSubmitBorrar = async e => {
+       e.preventDefault();
+       const respuesta = await axios.delete('http://localhost:4000/usuarios/Cor/' + this.state.ID )
      }
      
     render(){
@@ -75,10 +95,6 @@ class AdministrarUsuario extends Component{
             <div className="sign-box4">
                 <h1>TTT Restaurant</h1>
                 <h2>Administrar Usuarios</h2>
-
-                <Link className="nav-link" to={"/"} >
-               <button className="btn"><i className="fa fa-home"></i></button>
-               </Link>
             <form class = "consulta" onSubmit = {this.onSubmitConsulta}>
                {/*<!-- CONSULTAR USUARIO POR ID -->*/}
               <label for="ID">ID:</label>
@@ -88,17 +104,16 @@ class AdministrarUsuario extends Component{
             <form class="formulario" onSubmit={this.onSubmit}>
                {/*<!-- NOMBRE -->*/}
               <label for="Nombre">Nombre:</label>
-              <input type="text" placeholder="Aqui se genera el nombre" onChange={this.onChangeUsuario} />
+              <input type="text" placeholder="Hola ke ase" onChange={this.onChangeUsuario} defaultValue = {this.state.usuarioActual.nombre}/>
                {/*<!-- Nombre Corto -->*/}
               <label for="Nombre Corto">Nombre Corto:</label>
-              <input type="text" placeholder="Aqui se genera el nombre corto" onChange={this.onChangeNombreCorto}/>
-              
-               {/*<!-- EMAIL -->*/}
-              <label for="Email">Email:</label>
-              <input type="text" placeholder="Aqui se genera el email" onChange={this.onChangeEmail}/>
+              <input type="text" placeholder="Aqui se genera el nombre corto" onChange={this.onChangeNombreCorto} defaultValue = {this.state.usuarioActual.nombrec}/>
+              {/*<!-- Contraseña -->*/}
+              <label for="Contraseña">Contraseña:</label>
+              <input type="text" placeholder="Aqui se genera la Contraseña" onChange={this.onChangeContraseña} defaultValue = {this.state.usuarioActual.contraseña}/>
                {/*<!-- ROL -->*/}
               <label for="Rol">Rol:</label>
-              <input type="text" placeholder="Aqui se genera el Rol del usuario"onChange={this.onChangeRol} />
+              <input type="text" placeholder="Aqui se genera el Rol del usuario"onChange={this.onChangeRol} defaultValue = {this.state.usuarioActual.rol} />
         
             <input class="Guardar" type="submit" value="Guardar"  />
             </form>

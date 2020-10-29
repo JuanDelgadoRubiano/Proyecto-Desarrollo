@@ -2,17 +2,13 @@ import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import LoginUsuario from './components/LoginUsuario';
 import RegistroUsuario from './components/RegistroUsuario';
-import RegistroTrabajador from './components/RegistroTrabajador';
-import AdicionarLabores from './components/AdicionarLabores';
-import AppUsuario from './components/AppUsuario';
-import AppTrabajador from './components/AppTrabajador';
-import TipoRegistro from './components/TipoRegistro';
-import LaborActualTrabajador from './components/LaborActualTrabajador';
-import ServicioActualUsuario from './components/ServicioActualUsuario';
-import Calificar from './components/Calificar';
+import RegistroProductos from './components/RegistrarProductos';
+import AdicionarCategorias from './components/RegistrarCategorias';
+import AdministrarUsuario from './components/AdministrarUsuario';
+import AdministrarProductos from './components/AdministrarProductos';
+import AdministrarCategorias from './components/AdministrarCategorias';
 import Error from './components/Error';
-import Inicio from './components/Inicio';
-import MapaTrabajador from './components/MapaTrabajador';
+
 
 class Rutas extends Component {
 
@@ -23,18 +19,13 @@ class Rutas extends Component {
             <BrowserRouter>
               <Switch>
 
-                <Route exact path= "/" component= {Inicio} />
-                <Route exact path= "/Tipo_Registro" component= {TipoRegistro} />
                 <Route exact path= "/Login_Usuario" component= {LoginUsuario} />
                 <Route exact path= "/Registro_Usuario" component= {RegistroUsuario} />
-                <Route exact path= "/Registro_Trabajador" component= {RegistroTrabajador} />
-                <Route exact path= "/Adicionar_Labores" component= {AdicionarLabores} />
-                <Route exact path= "/Usuario" component= {AppUsuario} />
-                <Route exact path= "/Trabajador" component= {AppTrabajador} />
-                <Route exact path= "/Labor_actual" component= {LaborActualTrabajador} />
-                <Route exact path= "/Servicio_actual" component= {ServicioActualUsuario} />
-                <Route exact path= "/Calificar" component= {Calificar} />
-                <Route exact path= "/Mapa" component= {MapaTrabajador} />
+                <Route exact path= "/Registro_Productos" component= {RegistroProductos} />
+                <Route exact path= "/Adicionar_Categorias" component= {AdicionarCategorias} />
+                <Route exact path= "/Administrar_Usuario" component= {AdministrarUsuario} />
+                <Route exact path= "/Administrar_Productos" component= {AdministrarProductos} />
+                <Route exact path= "/Administrar_Categorias" component= {AdministrarCategorias} />
                 <Route component= {Error} />
 
               </Switch>
