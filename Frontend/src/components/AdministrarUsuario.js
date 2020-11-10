@@ -104,7 +104,7 @@ class AdministrarUsuario extends Component{
             <form class="formulario" onSubmit={this.onSubmit}>
                {/*<!-- NOMBRE -->*/}
               <label for="Nombre">Nombre:</label>
-              <input type="text" placeholder="Hola ke ase" onChange={this.onChangeUsuario} defaultValue = {this.state.usuarioActual.nombre}/>
+              <input type="text" placeholder="Aqui se genera el nombre" onChange={this.onChangeUsuario} defaultValue = {this.state.usuarioActual.nombre}/>
                {/*<!-- Nombre Corto -->*/}
               <label for="Nombre Corto">Nombre Corto:</label>
               <input type="text" placeholder="Aqui se genera el nombre corto" onChange={this.onChangeNombreCorto} defaultValue = {this.state.usuarioActual.nombrec}/>

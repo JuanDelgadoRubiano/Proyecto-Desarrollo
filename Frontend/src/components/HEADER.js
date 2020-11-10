@@ -8,7 +8,7 @@ class Header extends Component {
 
 		return (
 
-			<h1>HEADER</h1>
+			<h1>HOLAAA</h1>
 
 
 		);

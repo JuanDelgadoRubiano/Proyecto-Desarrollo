@@ -64,6 +64,7 @@ class RegistroUsuario extends Component{
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
           <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&display=swap" rel="stylesheet"></link>
 
+        
             <div class="sign-box2">
             <h1>TTT restaurant</h1>
             <h2>Registro Usuario</h2> 
@@ -99,15 +100,5 @@ class RegistroUsuario extends Component{
     }
 }
 
-    const button = document.getElementById('boton')
-    if(button){
-    button.addEventListener('click', axios.post('http://localhost:4000/cuenta/crearu', {"telefono": this.state.telefono,
-    "pass": this.state.password,
-    "email": this.state.email,
-    "tipo": "u",
-    "name": this.state.nombreUsuario,
-    "mpago" : "credito",
-    "recibo" : "/lalalae",
-    "direccion": "ST_GeomFromText('POINT(-0.1257 51.508)',4326)"}));}
 
 export default RegistroUsuario;

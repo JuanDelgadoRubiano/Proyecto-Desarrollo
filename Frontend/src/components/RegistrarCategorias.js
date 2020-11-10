@@ -13,7 +13,7 @@ class AdicionarCategorias extends Component {
 
 
     onChangeCategoria = (e) => {
-    this.setState({Categoria: e.target.value})
+        this.setState({Categoria: e.target.value})
     }
    
 
@@ -33,7 +33,7 @@ class AdicionarCategorias extends Component {
         ){console.log("1")
         }
         else{
-         document.location.href = "http://localhost:3000/Registro_Productos";
+         document.location.href = "http://localhost:3000/Adicionar_Categorias";
         }
         
     }

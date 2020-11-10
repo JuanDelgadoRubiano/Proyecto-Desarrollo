@@ -116,13 +116,15 @@ class RegistroProductos extends Component{
                {/*<!-- DISPONIBILIDAD -->*/}
               <label for="Disponibilidad">Disponibilidad:</label>
               <input type="text" placeholder="Se encuentra disponible el producto?"onChange={this.onChangeDisponibilidad} />
-              <input class="Registrar" type="submit" value="Registrar" id="boton"/>
+              
                {/*<!-- DESCRIPCION -->*/}
               <label className="descripcion" for="Descripcion de Producto">Descripcion de Producto :</label>
              <textarea name="textarea" rows="4" cols="30" onChange = {this.onChangeDescripcion} >Escribe la descripcion de la categoria aqui </textarea>
                {/*<!-- FOTO -->*/}
                <label for="Foto Prodcuto">Foto Producto:</label>
               <input type="file" placeholder="Ingrese foto del producto" accept=".jpg , .png" onChange={this.onChangeFoto}/>
+
+              <input class="Registrar" type="submit" value="Registrar" id="boton"/>
               <a href="#">Ayuda??</a><br />
             </form>
           </div>

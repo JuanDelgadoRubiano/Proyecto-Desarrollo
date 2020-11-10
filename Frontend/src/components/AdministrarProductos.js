@@ -57,14 +57,6 @@ class AdministrarProductos extends Component{
       this.setState({disponibilidad: this.state.productoActual.disponibilidad });
       this.setState({descripcion: this.state.productoActual.descripcion });
 
-      console.log("AQUI ESTOYYYYYYY");
-      console.log(this.state.nombre);
-      console.log(this.state.precio);
-      console.log(this.state.descuento);
-      console.log(this.state.disponibilidad);
-      console.log(this.state.descripcion);
-     
-
     }
 
     onSubmit = async e => {
@@ -72,10 +64,10 @@ class AdministrarProductos extends Component{
       e.preventDefault();
        const respuesta = await axios.post('http://localhost:4000/productos/update', {"categoria": this.state.productoActual.categoria,
         "nombre": this.state.nombre,
-        "imagen": "YOTAS",
+        "imagen": "Imagen",
        "descripcion": this.state.descripcion,
         "descuentos": this.state.descuento,
-        "detalles" : "Yoloooooo",
+        "detalles" : "Descripcion",
         "precio" : this.state.precio,
        "disponibilidad": this.state.disponibilidad,
        "iva" : 16,
@@ -129,7 +121,7 @@ class AdministrarProductos extends Component{
               <input type="text" placeholder="Se encuentra disponible el producto?"onChange={this.onChangeDisponibilidad} defaultValue = {this.state.productoActual.disponibilidad}/>
                {/*<!-- DESCRIPCION -->*/}
               <label className="descripcion" for="Descripcion de Producto">Descripcion de Producto :</label>
-             <textarea name="textarea" rows="4" cols="30" onChange = {this.onChangeDescripcion} defaultValue = {this.state.productoActual.descripcion}>Mucho texto </textarea>
+             <textarea name="textarea" rows="4" cols="30" onChange = {this.onChangeDescripcion} defaultValue = {this.state.productoActual.descripcion}>Escribe la descripcion del producto </textarea>
              <input class="Guardar" type="submit" value="Guardar"  />
             </form>
             <form class = "eliminar" onSubmit = {this.onSubmitBorrar}>
@@ -147,15 +139,6 @@ class AdministrarProductos extends Component{
 
 }
 
-    const button = document.getElementById('boton')
-    if(button){
-    button.addEventListener('click', axios.post('http://localhost:4000/cuenta/crearu', {"telefono": this.state.telefono,
-    "pass": this.state.password,
-    "email": this.state.email,
-    "tipo": "u",
-    "name": this.state.nombreUsuario,
-    "mpago" : "credito",
-    "recibo" : "/lalalae",
-    "direccion": "ST_GeomFromText('POINT(-0.1257 51.508)',4326)"}));}
+ 
 
 export default AdministrarProductos;

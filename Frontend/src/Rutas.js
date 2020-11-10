@@ -7,6 +7,8 @@ import AdicionarCategorias from './components/RegistrarCategorias';
 import AdministrarUsuario from './components/AdministrarUsuario';
 import AdministrarProductos from './components/AdministrarProductos';
 import AdministrarCategorias from './components/AdministrarCategorias';
+import RegistroClientes from './components/RegistrarClientes';
+import RegistrarSede from './components/RegistrarSedes';
 import Error from './components/Error';
 
 
@@ -22,7 +24,9 @@ class Rutas extends Component {
                 <Route exact path= "/Login_Usuario" component= {LoginUsuario} />
                 <Route exact path= "/Registro_Usuario" component= {RegistroUsuario} />
                 <Route exact path= "/Registro_Productos" component= {RegistroProductos} />
-                <Route exact path= "/Adicionar_Categorias" component= {AdicionarCategorias} />
+                <Route exact path= "/Registro_Clientes" component= {RegistroClientes} />
+                <Route exact path= "/Registro_Categorias" component= {AdicionarCategorias} />
+                <Route exact path= "/Registrar_Sedes" component= {RegistrarSede} />
                 <Route exact path= "/Administrar_Usuario" component= {AdministrarUsuario} />
                 <Route exact path= "/Administrar_Productos" component= {AdministrarProductos} />
                 <Route exact path= "/Administrar_Categorias" component= {AdministrarCategorias} />
