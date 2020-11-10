@@ -32,7 +32,9 @@ const { getCategorias,
 	CreateSede,
 	UpdateSede,
 	DeleteSedeByID,
-	postLogin } = require('../controllers/index.controller')
+	postLogin,
+	CreateRelacionCategoria,
+	DeleteRelacionCategoria } = require('../controllers/index.controller')
 
 router.get('/categorias', getCategorias);
 router.get('/categorias/:id',getCategoriaByCod);
@@ -43,6 +45,8 @@ router.get('/productos/cat/:id', getproductosByCat);
 router.get('/productos/cod/:id', getproductoByCod);
 router.post('/productos/update', UpdateProductoByCod);
 router.post('/productos', CreateProducto);
+router.post('/productos/cat', CreateRelacionCategoria);
+router.delete('/productos/cat', DeleteRelacionCategoria);
 router.delete('/productos/:id', DeleteProductoByCod);
 router.get('/usuarios', getUsuarios);
 router.get('/usuarios/:id', getUsuarioBycor);
