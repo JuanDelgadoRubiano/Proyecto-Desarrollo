@@ -38,7 +38,6 @@ create table categoria(nombre VARCHAR(40),
 
                        
 CREATE table producto(codigo SERIAL PRIMARY KEY,
-		      categoria SERIAL,
                       nombre VARCHAR(40),
                       imagen VARCHAR(100),
                       descripcion VARCHAR(200),
@@ -48,7 +47,13 @@ CREATE table producto(codigo SERIAL PRIMARY KEY,
                       disponibilidad BOOLEAN,
                       iva decimal(3));
 
-ALTER TABLE producto ADD CONSTRAINT producto_categorias FOREIGN KEY (categoria) REFERENCES categoria(codigo) ON UPDATE NO ACTION ON DELETE NO ACTION;
+CREATE table categoria_producto(categoria_cod SERIAL,
+				producto_cod SERIAL
+				);
+ALTER TABLE categoria_producto ADD CONSTRAINT categoria_categoria FOREIGN KEY (categoria_cod) REFERENCES categoria(codigo) ON UPDATE NO ACTION ON DELETE NO ACTION; 
+
+ALTER TABLE categoria_producto ADD CONSTRAINT producto_P_categoria FOREIGN KEY (producto_cod) REFERENCES producto(codigo) ON UPDATE NO ACTION ON DELETE NO ACTION; 
+
 
                       
 create table factura(id SERIAL PRIMARY KEY,

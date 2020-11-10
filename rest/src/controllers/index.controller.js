@@ -53,7 +53,7 @@ const DeleteCategoriaByCod = async (req,res) => {
 //productos
 //Gets
 const getproductosByCat = async (req,res) => {
-    const response = await pool.query('select * from producto where categoria = $1',[req.params.id]);
+    const response = await pool.query('select * from categoria_producto where categoria_cod = $1',[req.params.id]);
     res.status(200).json(response.rows);
     console.log(response.rows);
 };
@@ -80,7 +80,7 @@ const UpdateProductoByCod= async (req,res) => {
 const CreateProducto= async (req,res) => {
 	const { categoria, nombre, imagen , descripcion , descuentos ,
 		 detalles , precio , disponibilidad , iva } = req.body;
-	const response = await pool.query('insert into producto (categoria, nombre, imagen , descripcion , descuentos , detalles , precio , disponibilidad , iva) values ($1, $2, $3, $4, $5, $6, $7, $8, $9)',[categoria, nombre, imagen , descripcion , descuentos , 		detalles , precio , disponibilidad , iva]);
+	const response = await pool.query('insert into producto ( nombre, imagen , descripcion , descuentos , detalles , precio , disponibilidad , iva) values ($1, $2, $3, $4, $5, $6, $7, $8, $9)',[ nombre, imagen , descripcion , descuentos , 		detalles , precio , disponibilidad , iva]);
 	    res.json({
       message: 'Producto agregado',
       body: {
@@ -88,7 +88,19 @@ const CreateProducto= async (req,res) => {
       }
   });
 };
+
+const CreateRelacionCategoria= async (req,res) => {
+	const { categoria, producto } = req.body;
+	const response = await pool.query('insert into categoria_producto (categoria_cod , producto_cod) values ($1, $2)',[ categoria, producto ]);
+};
+
 ///Delete 
+
+const DeleteRelacionCategoria= async (req,res) => {
+	const { categoria, producto } = req.body;
+	const response = await pool.query('delete from categoria_producto where categoria_cod = $1 AND producto_cod = $2)',[ categoria, producto ]);
+};
+
 const DeleteProductoByCod = async (req,res) => {
     const response = await pool.query('delete from Producto where codigo = $1',[req.params.id]);
     res.json({
@@ -340,5 +352,7 @@ module.exports = {
 	CreateSede,
 	UpdateSede,
 	DeleteSedeByID,
-	postLogin
+	postLogin,
+	CreateRelacionCategoria,
+	DeleteRelacionCategoria
 }
