@@ -1,6 +1,17 @@
 const axios = require("axios");
 
+test('crear sede rechazo cadena vacia ', async () => {
 
+  const res = await axios.post('http://localhost:4000/sedes',
+  {"nombre": 'santa monica',
+  "nit":"154.5578.545.5",
+  "direccion": 'lala',
+  "telefono": 3212334})
+
+  //const res1 = res.data[0];
+  //console.log(res);
+  expect(res.data).not.toBe('fracaso');
+});
 
 
 test('crear sede rechazo cadena vacia ', async () => {
