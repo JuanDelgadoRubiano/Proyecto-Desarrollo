@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-test('crear sede rechazo cadena vacia ', async () => {
+test('crear sede exitosa ', async () => {
 
   const res = await axios.post('http://localhost:4000/sedes',
   {"nombre": 'santa monica',
